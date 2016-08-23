@@ -1,10 +1,10 @@
 class Node {
 	constructor(data, priority) {
-		this.data=data;
-		this.priority=priority;
-		this.parent=null;
-		this.left=null;
-		this.right=null;
+		this.data = data;
+		this.priority = priority;
+		this.parent = null;
+		this.left = null;
+		this.right = null;
 	}
 
 	appendChild(node) {
@@ -40,16 +40,16 @@ class Node {
 		if (this.parent != null) {
 			if (this.parent.parent != null) {
 				if (this.parent.parent.left == this.parent) {
-					this.parent.parent.left=this
+					this.parent.parent.left = this
 				} else {
-					this.parent.parent.right=this
+					this.parent.parent.right = this
 				}
 			}
-			if (this.left!=null) { this.left.parent=this.parent }
-			if (this.right!=null) { this.right.parent=this.parent }
+			if (this.left != null) { this.left.parent = this.parent }
+			if (this.right != null) { this.right.parent = this.parent }
 			if (this == this.parent.left) {
-				if (this.parent.right!=null) {
-					this.parent.right.parent=this;
+				if (this.parent.right != null) {
+					this.parent.right.parent = this;
 				}
 				var tempVariable = this.right;
 				this.right = this.parent.right;
@@ -57,8 +57,8 @@ class Node {
 				this.parent.left = this.left;
 				this.left = this.parent;
 			} else {
-				if (this.parent.left!=null) {
-					this.parent.left.parent=this;
+				if (this.parent.left != null) {
+					this.parent.left.parent = this;
 				}
 				var tempVariable = this.left;
 				this.left = this.parent.left;
@@ -67,7 +67,7 @@ class Node {
 				this.right = this.parent;
 			}
 			var tempVariable = this.parent.parent;
-			this.parent.parent=this;
+			this.parent.parent = this;
 			this.parent = tempVariable;
 		}
 	}
